@@ -1,0 +1,35 @@
+{
+  "name": "deployments_project",
+  "version": "1.0.0",
+  "description": "simple express server with multiple environmets",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npm run build && NODE_ENV=development PORT=3001 node dist/index.js",
+    "start:staging": "npm run build && NODE_ENV=staging PORT=3002 node dist/index.js",
+    "start:prod": "npm run build && NODE_ENV=production PORT=3003 node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p .",
+    "pm2:start:dev": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_dev",
+    "pm2:start:staging": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_staging",
+    "pm2:start:prod": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_prod",
+    "deploy:staging-from-dev": "git checkout staging && git merge origin/dev && git push origin staging",
+    "deploy:prod-from-staging": "git checkout production && git merge origin/staging && git push origin production"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "dotenv-expand": "^10.0.0",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.6",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  },
+  "author": "Tarek Saimouah",
+  "license": "ISC"
+}
