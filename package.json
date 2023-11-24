@@ -31,5 +31,5 @@
     "typescript": "^4.9.5"
   },
   "author": "Tarek Saimouah",
-  "license": "ISC"
+  "license": "MIT"
 }
