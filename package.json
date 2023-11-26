@@ -9,11 +9,11 @@
     "start:prod": "npm run build && NODE_ENV=production PORT=3003 node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc -p .",
-    "pm2:start:dev": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_dev",
-    "pm2:start:staging": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_staging",
-    "pm2:start:prod": "npm run build && pm2 startOrRestart ecosystem.config.js --only worker_prod",
-    "deploy:staging-from-dev": "git checkout staging && git merge origin/dev && git push origin staging",
-    "deploy:prod-from-staging": "git checkout production && git merge origin/staging && git push origin production"
+    "pm2:start:dev": "git checkout dev && npm run build && pm2 startOrRestart ecosystem.config.js --only worker_dev",
+    "pm2:start:staging": "git checkout staging && npm run build && pm2 startOrRestart ecosystem.config.js --only worker_staging",
+    "pm2:start:prod": "git checkout production && npm run build && pm2 startOrRestart ecosystem.config.js --only worker_prod",
+    "deploy:staging-from-dev": "git checkout staging && git merge origin/dev && git push origin staging && git checkout dev",
+    "deploy:prod-from-staging": "git checkout production && git merge origin/staging && git push origin production && git checkout dev"
   },
   "dependencies": {
     "cors": "^2.8.5",

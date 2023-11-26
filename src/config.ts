@@ -9,7 +9,6 @@ interface ENV {
   PORT: number | undefined
   CLIENT_URL: string | undefined
   MONGODB_URL: string | undefined
-  AUTHORIZATION_KEY: string | undefined
 }
 
 const getConfig = (): ENV => {
@@ -18,7 +17,6 @@ const getConfig = (): ENV => {
     PORT: process.env.PORT ? Number(process.env.PORT) : undefined,
     CLIENT_URL: process.env.CLIENT_URL,
     MONGODB_URL: process.env.MONGODB_URL,
-    AUTHORIZATION_KEY: process.env.AUTHORIZATION_KEY,
   }
 }
 
