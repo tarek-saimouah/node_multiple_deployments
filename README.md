@@ -28,6 +28,6 @@ $ npm run start:dev
 $ curl http://localhost:3001/hello
 ```
 
-- [Full article on Medium](https://medium.com/@tareksaimouah/node-js-clean-architecture-simplified-example-b9f9b4d65ba5)
+- [Full article on Medium](https://medium.com/@tareksaimouah/managing-multiple-node-js-environment-deployments-tutorial-no-devops-required-6f9433bdaa63)
 
 ---
